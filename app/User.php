@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function profile(){
-        return  $this->hasOne(Profile::class);
+        return  $this->hasOne(Profile::class); //Tiene un perfil
     }
 
     public function level(){
@@ -47,5 +47,21 @@ class User extends Authenticatable
 
     public function groups(){
         return  $this->belongsToMany(Group::class)->withTimestamps(); //Pertenece y tiene muchos
+    }
+
+    public function location(){
+        return  $this->hasOneThrough(Location::class, Profile::class); //Tiene uno a traves de Perfil
+    }
+    public function posts(){
+        return  $this->hasMany(Post::class); //Tiene muchos, sirve para ver cuantos Post pertenecen a este usuario
+    }
+    public function videos(){
+        return  $this->hasMany(Video::class); //Tiene muchos, sirve para ver cuantos Videos pertenecen a este usuario
+    }
+    public function comments(){
+        return  $this->hasMany(Comment::class); //Tiene muchos, sirve para ver cuantos Comentarios pertenecen a este usuario
+    }
+    public function image(){
+        return  $this->morphOne(Image::class, 'imageable'); //Tiene muchos, sirve para ver cuantos Comentarios pertenecen a este usuario
     }
 }
