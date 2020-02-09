@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Profile::class, function (Faker $faker) {
     return [
-        //
+        'instagram' => $faker->userName,
+        'facebook' => $faker->userName,
+        'web' => $faker->web,
     ];
 });

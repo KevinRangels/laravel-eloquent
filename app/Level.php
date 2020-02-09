@@ -16,3 +16,6 @@ class Level extends Model
         return  $this->hasManyThrough(Video::class, User::class); //Tiene muchos Videos a traves de usuarios
     }
 }
+
+
+//SE PUEDE VER LAS CANTIDAD Y LISTA DE POSTS DE UN USUARIO
